@@ -26,10 +26,6 @@
 
         .system-def-box { background: #f7fafc; border: 1px solid #e2e8f0; padding: 15px; margin-bottom: 20px; border-radius: 6px; font-size: 0.95rem; }
         .system-def-box ul { margin: 8px 0 0 0; padding-left: 20px; }
-        
-        .specs-box { background: #fffdf0; border-left: 8px solid #d4a200; padding: 20px; border-radius: 6px; margin-bottom: 25px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); }
-        .specs-box h4 { margin-top: 0; color: #9c7700; border-bottom: 1px solid #f2e2a7; padding-bottom: 8px; margin-bottom: 10px; font-size: 1.05rem; }
-        .specs-box ul { margin-top: 0; padding-left: 20px; font-size: 0.9rem; }
 
         .cierre-box { background: #f0fff4; border-left: 8px solid #38a169; padding: 20px; border-radius: 6px; margin-top: 35px; margin-bottom: 20px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); }
         .cierre-box h2 { border-bottom: none; color: #276749; font-size: 1.3rem; margin-top: 0; padding-bottom: 5px; }
@@ -77,4 +73,322 @@
                 <div class="checklist-container">
                     <div class="checklist-item">
                         <input type="checkbox" id="chk-loto-1" class="chk-seguridad">
-                        <label for="chk-loto-1" class="checklist-text
+                        <label for="chk-loto-1" class="checklist-text">Fase 1: Desactivación Lógica del Módulo APM303, confirmando que no existen ciclos de partida automática pendientes.</label>
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" id="chk-loto-2" class="chk-seguridad">
+                        <label for="chk-loto-2" class="checklist-text">Fase 2: Desconexión del Banco de Baterías de 24V. 
+                        <span class="checklist-note">Precaución Estándar: El terminal negativo/masa fue retirado en primer lugar para anular el riesgo de arco eléctrico accidental.</span></label>
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" id="chk-loto-3" class="chk-seguridad">
+                        <label for="chk-loto-3" class="checklist-text">Fase 3: Instalación del sistema de bloqueo físico (candado) y señalética de advertencia en el seccionador principal.</label>
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" id="chk-loto-4" class="chk-seguridad">
+                        <label for="chk-loto-4" class="checklist-text">Fase 4: Certificación de Tensión Cero en los bornes del panel utilizando multímetro antes de manipular sensores.</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="epp-box">
+                <h2>Inspección de EPP y Vestimenta</h2>
+                <p style="font-size: 0.95rem; margin-top: 0;">Revisión cruzada del personal técnico antes de acceder al motor:</p>
+                <div class="checklist-container">
+                    <div class="checklist-item">
+                        <input type="checkbox" id="chk-epp-1" class="chk-seguridad">
+                        <label for="chk-epp-1" class="checklist-text">Riesgo Mecánico: Uso de overol sin partes sueltas, casco bien ajustado y remoción total de elementos metálicos personales (anillos, cadenas).</label>
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" id="chk-epp-2" class="chk-seguridad">
+                        <label for="chk-epp-2" class="checklist-text">Protección de Impacto y Fluidos: Botas de seguridad con aislación dieléctrica y gafas de policarbonato envolventes.</label>
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" id="chk-epp-3" class="chk-seguridad">
+                        <label for="chk-epp-3" class="checklist-text">Protección Sensorial y Manual: Protección auditiva (tapones o fonos) colocada para tareas neumáticas, guantes de descarne térmico para manipular piezas calientes y guantes ESD para desconectar instrumentación.</label>
+                    </div>
+                </div>
+            </div>
+
+            <h2>Análisis de Riesgos Operativos (APR)</h2>
+            <div class="checklist-container">
+                <div class="checklist-item">
+                    <input type="checkbox" id="chk-apr-1" class="chk-seguridad">
+                    <label for="chk-apr-1" class="checklist-text">Estabilidad Térmica del Turbo: Inspección con pirómetro confirmando que el conjunto central y caracolas registran menos de 40°C y el eje está detenido.</label>
+                </div>
+                <div class="checklist-item">
+                    <input type="checkbox" id="chk-apr-2" class="chk-seguridad">
+                    <label for="chk-apr-2" class="checklist-text">Manejo de Sustancias Peligrosas: Hojas de datos de seguridad (HDS) revisadas y receptáculos rojos (Normativa MARPOL) disponibles para trapos con aceite.</label>
+                </div>
+            </div>
+
+            <button id="btn-desbloquear" disabled>Aprobar Protocolos y Desplegar Pauta</button>
+        </div>
+
+        <div id="seccion-mantenimiento">
+            
+            <h2>1. Definición del Sistema y Metodología FMECA</h2>
+            <div class="system-def-box">
+                <strong>Alcance del Subsistema:</strong> Circuito de Admisión y Sobrealimentación (Motor Doosan P126TI-II). Abarca desde la unidad de filtrado de aire atmosférico, pasando por el bloque de compresión y enfriamiento, hasta los conductos del colector en la culata.
+                <br><br>
+                <strong>Criterio de Criticidad:</strong> Se aplicó la metodología FMECA para determinar los componentes que exigen mantenimiento condicional estricto frente a los de mantenimiento preventivo rutinario, aplicando la regla de severidad máxima.
+            </div>
+
+            <table>
+                <tr>
+                    <th>Componente Evaluado</th>
+                    <th>Estado FMECA</th>
+                    <th>Valores (S-O-D)</th>
+                    <th>Acción de Mantenimiento</th>
+                </tr>
+                <tr>
+                    <td><strong>Turbocompresor</strong></td>
+                    <td><span class="badge-critico">PRIORIDAD CRÍTICA (S=9)</span></td>
+                    <td>S=9, O=3, D=4 <br><strong>NPR = 108</strong></td>
+                    <td>Evaluación condicional rigurosa cada 3.000h (Control de holguras con reloj comparador).</td>
+                </tr>
+                <tr>
+                    <td><strong>Filtro de Aire</strong></td>
+                    <td><span class="badge-nocritico">Prioridad Media</span></td>
+                    <td>S=7, O=5, D=2 <br><strong>NPR = 70</strong></td>
+                    <td>Intervención preventiva periódica (Sopleteado a 5 bar cada 200/400h).</td>
+                </tr>
+                <tr>
+                    <td><strong>Intercooler</strong></td>
+                    <td><span class="badge-nocritico">Prioridad Media</span></td>
+                    <td>S=6, O=4, D=3 <br><strong>NPR = 72</strong></td>
+                    <td>Inspección de estanqueidad y lavado químico exterior cada 600h.</td>
+                </tr>
+                <tr>
+                    <td><strong>Colector de Admisión</strong></td>
+                    <td><span class="badge-nocritico">Prioridad Media</span></td>
+                    <td>S=6, O=3, D=3 <br><strong>NPR = 54</strong></td>
+                    <td>Cambio de empaquetaduras por condición y apriete dinamométrico.</td>
+                </tr>
+            </table>
+
+            <h2>2. Estimación de Horas y Requerimientos Técnicos</h2>
+            
+            <table>
+                <tr><th>ID Tarea</th><th>Descripción de la Intervención</th><th>Intervalo</th><th>Carga (HH)</th></tr>
+                <tr><td>T-01</td><td>Revisión y sopleteado del elemento filtrante</td><td>200/400 h</td><td>1.0 HH (2 Técnicos)</td></tr>
+                <tr><td>T-02</td><td>Limpieza química del panel enfriador (Intercooler)</td><td>600 h</td><td>2.0 HH (2 Técnicos)</td></tr>
+                <tr><td>T-03</td><td>Control metrológico de holguras del rotor</td><td>3000 h</td><td>6.0 HH (2 Técnicos)</td></tr>
+                <tr><td>T-04</td><td>Renovación de juntas y apriete del múltiple</td><td>Condicional</td><td>4.0 HH (2 Técnicos)</td></tr>
+            </table>
+
+            <div class="tools-box">
+                <h4>Equipamiento Mecánico e Instrumentación Acreditada</h4>
+                <ul>
+                    <li><strong>Herramientas Básicas:</strong> Dados milimétricos, llaves combinadas, rasquetas de polímero (no abrasivas), pistola de aire neumática regulada (5 bar).</li>
+                    <li><strong>Metrología (Calibración ISO 17025):</strong> Reloj Comparador (0.01 mm) con base magnética, Torquímetro mecánico (1-10 kg·m), Pirómetro.</li>
+                    <li><strong>Verificación de Tolerancias:</strong> Set de Galgas de Espesores (Feeler Gauge) para medición de luz entre álabes y caracola del turbo.</li>
+                </ul>
+                <h4 style="margin-top: 15px;">Herramientas para Sistemas de Control (Sensores)</h4>
+                <ul>
+                    <li><strong>Diagnóstico Eléctrico:</strong> Multímetro Digital True-RMS y Calibrador de lazos de proceso (4-20mA).</li>
+                    <li><strong>Seguridad Electrónica:</strong> Destornilladores con aislación de 1000V y uso estricto de guantes/pulseras ESD al intervenir las borneras del APM303.</li>
+                </ul>
+            </div>
+
+            <h2>3. Procedimientos Técnicos Normalizados</h2>
+            
+            <h3>A. Sistema de Filtración de Aire</h3>
+            <img src="https://raw.githubusercontent.com/franteubersandrock-spec/QR-doosan/main/filtro.png" alt="Filtro de Aire" class="img-componente">
+            <table>
+                <tr>
+                    <th width="25%">Personal Requerido</th>
+                    <td><strong>Dotación: 2 Personas</strong> (Soporte cruzado en sopleteado e inspección).<br><br>
+                        <span style="color: #c53030; font-size: 0.85rem; padding: 4px 0; display: inline-block;"><strong>⚠ EPP OBLIGATORIO:</strong> Es estrictamente necesario el uso de <strong>casco de seguridad y protección auditiva</strong> (tapones o fonos) durante la fase de sopleteado neumático.</span>
+                    </td>
+                </tr>
+                <tr>
+                    <th>Pasos de Ejecución</th>
+                    <td>
+                        <ol class="pasos-mantenimiento">
+                            <li>Revisar preliminarmente el indicador visual de saturación de vacío en el panel.</li>
+                            <li>Extraer el cartucho filtrante con precaución de no desprender polvo hacia la admisión. Vaciar la copa recolectora inferior.</li>
+                            <li>Limpiar el interior del alojamiento metálico <strong>solo con paños húmedos</strong> (Prohibido sopletear el receptáculo instalado).</li>
+                            <li>Aplicar aire comprimido al cartucho (máx. 5 bar) desde el interior hacia el exterior con boquilla acodada.</li>
+                            <li>Inspeccionar a trasluz. Cualquier rotura en el papel o sello obliga a la sustitución definitiva del cartucho.</li>
+                        </ol>
+                    </td>
+                </tr>
+            </table>
+
+            <h3>B. Enfriador de Aire de Carga (Intercooler)</h3>
+            <img src="https://raw.githubusercontent.com/franteubersandrock-spec/QR-doosan/main/intercooler.png" alt="Intercooler" class="img-componente">
+            <table>
+                <tr>
+                    <th width="25%">Personal Requerido</th>
+                    <td><strong>Dotación: 2 Personas</strong> (Manejo de químicos y desacople de tuberías)</td>
+                </tr>
+                <tr>
+                    <th>Pasos de Ejecución</th>
+                    <td>
+                        <ol class="pasos-mantenimiento">
+                            <li>Soltar abrazaderas de alta presión y retirar acoples de silicona.</li>
+                            <li>Diagnóstico interno: Evaluar presencia de aceite lubricante en los conductos (indicio de falla en sellos del turbo).</li>
+                            <li>Limpiar el panal exterior utilizando químico desengrasante y un <strong>cepillo de cerdas plásticas</strong>. Las herramientas metálicas destruirán las aletas disipadoras.</li>
+                            <li>Enjuagar a baja presión, secar y rectificar aletas dobladas con un peine de radiadores.</li>
+                        </ol>
+                    </td>
+                </tr>
+            </table>
+
+            <h3>C. Turbocompresor (Evaluación Crítica)</h3>
+            <img src="https://raw.githubusercontent.com/franteubersandrock-spec/QR-doosan/main/turbo.png" alt="Turbocompresor" class="img-componente">
+            <table>
+                <tr>
+                    <th width="25%">Personal Requerido</th>
+                    <td><strong>Dotación: 2 Personas</strong> (Lectura metrológica y manipulación simultánea)</td>
+                </tr>
+                <tr>
+                    <th>Pasos de Ejecución</th>
+                    <td>
+                        <ol class="pasos-mantenimiento">
+                            <li>Desmontar líneas de lubricación y sellar inmediatamente los puertos con tapones limpios.</li>
+                            <li>Comprobar la inercia del rodete manualmente: debe rotar de forma fluida y sin arrastre mecánico.</li>
+                            <li>Fijar la base magnética en el bloque central e instalar el reloj comparador apoyado en el extremo del eje.</li>
+                            <li>Medir la <strong>Holgura Axial</strong> desplazando el eje longitudinalmente. El desgaste máximo no debe superar los <strong>0.20 mm</strong>.</li>
+                            <li>Medir la <strong>Holgura Radial</strong> aplicando presión vertical alterna. El desgaste máximo es de <strong>0.11 mm</strong>.</li>
+                            <li>Comprobar la luz perimetral de los álabes utilizando las <strong>Galgas de Espesores</strong>. Si se exceden las tolerancias, el componente requiere recambio.</li>
+                        </ol>
+                    </td>
+                </tr>
+            </table>
+
+            <h3>D. Colector de Admisión e Instrumentación</h3>
+            <img src="https://raw.githubusercontent.com/franteubersandrock-spec/QR-doosan/main/colector.png" alt="Colector de Admisión" class="img-componente">
+            <table>
+                <tr>
+                    <th width="25%">Personal Requerido</th>
+                    <td><strong>Dotación: 2 Personas</strong> (Control de torque y pruebas electrónicas)</td>
+                </tr>
+                <tr>
+                    <th>Pasos de Ejecución</th>
+                    <td>
+                        <ol class="pasos-mantenimiento">
+                            <li>Aflojar la tornillería del colector siguiendo un patrón inverso (de los extremos hacia el centro) para evitar deformaciones térmicas en la fundición.</li>
+                            <li>Retirar los residuos de las juntas viejas usando rasquetas blandas (plástico/bronce) para proteger el plano de la culata.</li>
+                            <li>Montar el colector con empaquetaduras nuevas y aplicar torque cruzado (Centro hacia los bordes):
+                                <ul style="margin-top: 5px; background: #f7fafc; padding: 10px 10px 10px 30px; border-radius: 4px;">
+                                    <li>Pernos M10: <strong>4.4 kg·m</strong>.</li>
+                                    <li>Pernos M8: <strong>2.2 kg·m</strong>.</li>
+                                </ul>
+                            </li>
+                            <li><strong>Integración de Sensores:</strong> Con medidas ESD aplicadas, reinstale los sensores de presión y temperatura del aire. Use un torquímetro de bajo rango para asegurar el aplastamiento correcto de la arandela de cobre sin dañar la rosca.</li>
+                            <li><strong>Prueba de Lazo:</strong> Validar continuidad de los sensores instalados con multímetro antes de la energización general.</li>
+                        </ol>
+                    </td>
+                </tr>
+            </table>
+
+        </div> <!-- Fin sección mantenimiento -->
+
+        <!-- FASE DE CIERRE Y VERIFICACIÓN POST-MANTENIMIENTO -->
+        <div class="cierre-box">
+            <h2>Auditoría de Cierre y Puesta en Servicio</h2>
+            <p style="text-align: center; font-size: 0.95rem; margin-bottom: 15px;">Validación estricta requerida antes de reestablecer la energía motriz:</p>
+            
+            <div class="checklist-container">
+                <div class="checklist-item">
+                    <input type="checkbox" id="cierre-1" class="chk-cierre">
+                    <label for="cierre-1" class="checklist-text">Control de Herramientas: Se verificó que ninguna herramienta, instrumento o paño quedó olvidado sobre las bancadas o componentes rotativos.</label>
+                </div>
+                <div class="checklist-item">
+                    <input type="checkbox" id="cierre-2" class="chk-cierre">
+                    <label for="cierre-2" class="checklist-text">Prevención de Daños Internos: Confirmación absoluta de que los conductos de aire y acoples de silicona están libres de pernos o residuos extraños antes del apriete final.</label>
+                </div>
+                <div class="checklist-item">
+                    <input type="checkbox" id="cierre-3" class="chk-cierre">
+                    <label for="cierre-3" class="checklist-text">Verificación de Ensamblaje: Todas las uniones, mangueras y pernos fueron ajustados según las tablas de torque de Doosan.</label>
+                </div>
+                <div class="checklist-item">
+                    <input type="checkbox" id="cierre-4" class="chk-cierre">
+                    <label for="cierre-4" class="checklist-text">Manejo de Residuos: La zona se encuentra limpia, seca y los desechos oleosos están debidamente almacenados.</label>
+                </div>
+            </div>
+
+            <button id="btn-finalizar" disabled>Aprobar Auditoría de Cierre</button>
+        </div>
+
+        <div id="mensaje-exito">
+            Operación de Mantenimiento Finalizada. El subsistema de Admisión y Sobrealimentación ha sido validado. Proceda a retirar el bloqueo LOTO, conectar el banco de baterías e iniciar el módulo APM303.
+        </div>
+
+        <div class="footer">
+            Taller de Especialización II - Gestión y Mantención de Máquinas Marinas<br>
+            <strong>Grupo: Doosan P126TI-II / Alternador SDMO</strong><br>
+            Desarrollado por: Francisco Teuber Sandrock
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const checkboxesSeg = document.querySelectorAll('.chk-seguridad');
+            const btnDesbloquear = document.getElementById('btn-desbloquear');
+            const seccionMantenimiento = document.getElementById('seccion-mantenimiento');
+
+            const checkboxesCierre = document.querySelectorAll('.chk-cierre');
+            const btnFinalizar = document.getElementById('btn-finalizar');
+            const mensajeExito = document.getElementById('mensaje-exito');
+
+            function revisarSeguridad() {
+                let todasMarcadas = true;
+                checkboxesSeg.forEach(function(chk) {
+                    if (!chk.checked) todasMarcadas = false;
+                });
+                
+                if (todasMarcadas) {
+                    btnDesbloquear.disabled = false;
+                    btnDesbloquear.style.backgroundColor = "#2b6cb0";
+                    btnDesbloquear.textContent = "DESPLEGAR PAUTA DE MANTENIMIENTO";
+                } else {
+                    btnDesbloquear.disabled = true;
+                    btnDesbloquear.style.backgroundColor = "#cbd5e0";
+                    btnDesbloquear.textContent = "Aprobar Protocolos y Desplegar Pauta";
+                }
+            }
+
+            function revisarCierre() {
+                let cierreMarcadas = true;
+                checkboxesCierre.forEach(function(chk) {
+                    if (!chk.checked) cierreMarcadas = false;
+                });
+
+                if (cierreMarcadas) {
+                    btnFinalizar.disabled = false;
+                    btnFinalizar.style.backgroundColor = "#2f855a";
+                    btnFinalizar.style.cursor = "pointer";
+                    btnFinalizar.textContent = "APROBAR AUDITORÍA DE CIERRE";
+                } else {
+                    btnFinalizar.disabled = true;
+                    btnFinalizar.style.backgroundColor = "#a0aec0";
+                    btnFinalizar.style.cursor = "not-allowed";
+                    btnFinalizar.textContent = "Aprobar Auditoría de Cierre";
+                }
+            }
+
+            checkboxesSeg.forEach(function(chk) {
+                chk.addEventListener('change', revisarSeguridad);
+            });
+
+            checkboxesCierre.forEach(function(chk) {
+                chk.addEventListener('change', revisarCierre);
+            });
+
+            btnDesbloquear.addEventListener('click', function() {
+                seccionMantenimiento.style.display = 'block';
+                seccionMantenimiento.scrollIntoView({ behavior: 'smooth' });
+            });
+
+            btnFinalizar.addEventListener('click', function() {
+                btnFinalizar.style.display = 'none';
+                mensajeExito.style.display = 'block';
+                window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+            });
+        });
+    </script>
+</body>
+</html>
